@@ -22,19 +22,24 @@ export default async function Music() {
         <>
             <Header />
             <h1 className="text-[3em] pl-[.5em] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a00] to-[#E71858]">All Songs</h1>
-            
-                <div className="flex justify-between p-[2em]">
-                    <div>
-                        <Image height={40} width={40} src={musicPlay} alt="play" />
+            {data.tracks.map((track)=>(
+                <>
+                    <div className="flex justify-between p-[2em]">
+                        <div className="flex">
+                            <div>
+                                <Image height={40} width={40} src={musicPlay} alt="play" />
+                            </div>
+                        <div className="ml-[1.5em]">
+                            <h2 className="text-[1.2em] font-bold ">Song Title</h2>
+                                <span>{track.album.artists[0].name}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Time</span>
+                        </div>
                     </div>
-                    <div>
-                        <h2>Song Title</h2>
-                        <span>Singer</span>
-                    </div>
-                    <div>
-                        <span>Time</span>
-                    </div>
-                </div>
+                </>
+            ))}
             
             <Footer/>
         </>
