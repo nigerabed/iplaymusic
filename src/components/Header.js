@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function Header() {
     const [title, setTitle] = useState();
-    const pathName = usePathname().replace("/", "");
+    const pathName = usePathname().split("/")[1]
     const router = useRouter()
 
 

@@ -33,6 +33,7 @@ export async function GET(req) {
     const cookieStore = cookies()
     cookieStore.set("iplay_token", json.access_token, { maxAge: 3600 })
 
+
     redirect("/featured")
     // return NextResponse.json({})
 }
