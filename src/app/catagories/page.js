@@ -1,8 +1,15 @@
+
+
+import Category from '@/components/Category';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { cookies } from 'next/headers';
 
-export default async function catagories(){
+
+
+
+export default async function catagories() {
+  
 
     const cookieStore = cookies();
     const token = cookieStore.get("iplay_token")
@@ -14,11 +21,21 @@ export default async function catagories(){
         }
     })
     const data = await response.json()
-    console.log("-----",data.categories.items);
+    //console.log("-----catagories", data.categories.items);
+
+    
+
+   
 
 
-    return(
-        <Header />
+    return (
+        <>
+            <Header />
+            {data.categories.items.map(category=>(
+                <Category id={category.id} name={category.name} />
 
+            ))}
+            <Footer/>
+        </>
     )
 }

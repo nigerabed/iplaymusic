@@ -25,17 +25,27 @@ export default async function Player({ params }) {
 
     // console.log(url);
     // console.log(token.value)
-    console.log("player data", song);
+    //console.log("player data", song);
 
 
     return <div className="h-screen">
-        <Header/>
+        <Header />
         <div
             style={{ '--image-url': `url(${song.album.images[0].url})` }}
             className='bg-[image:var(--image-url)] h-[90%] bg-no-repeat'>
 
-            <div className=" min-h-12 text-white">
-                <p className="absolute bottom-[12em] left-[4em] font-extrabold text-[1.4em]">Playing.... {song.name}</p>
+            <div className="absolute bottom-[13em] left-[3em]">
+                <div className=" min-h-12 text-white">
+                    <p className=" font-extrabold text-[1.4em]">{song.name}</p>
+                    <p className=" text-[1.4em]">{song.artists[0].name}</p>
+                </div>
+                <div className=" w-[90%] bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                    <div className="bg-red-600 h-2.5 rounded-full w-[45%]"></div>
+                </div>
+                <div className="flex justify-between text-white mt-[1em]">
+                    <span>00</span>
+                    <span>00</span>
+                </div>
             </div>
         </div>
         <Footer />

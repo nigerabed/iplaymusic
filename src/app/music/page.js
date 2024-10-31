@@ -49,11 +49,9 @@ export default async function Music() {
                         <div>
                             <span>{millisToMinutesAndSeconds(track.duration_ms)}</span>
                         </div>
-                    </div>
-                    <Footer/>
+                    </div>                   
                 </>
             ))}
-
             <Footer />
         </>
     )

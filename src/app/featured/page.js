@@ -17,7 +17,7 @@ export default async function featuredPlay() {
         }
     })
     const data = await response.json()
-    console.log(data.playlists.items);
+    //console.log(data.playlists.items);
 
     return (
         <>
