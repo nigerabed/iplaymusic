@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import Link from "next/Link"
+import Link from "next/Link";
 import CategoryPlaylist from './CategoriyPlaylist';
 
 export default function Category({ id, name, categoryplaylist }) {
