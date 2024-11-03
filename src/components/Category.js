@@ -1,7 +1,9 @@
 "use client"
 import { useState } from 'react';
 import Link from "next/Link"
-export default function Category({ id, name }) {
+import CategoryPlaylist from './CategoriyPlaylist';
+
+export default function Category({ id, name, categoryplaylist }) {
     const [selected, setSelected] = useState(null)
 
     const randomColors = ['#FF5733', '#33FF57', '#FF33FF', '#33A8FF', '#A833FF', '#FFA833'];
@@ -9,6 +11,8 @@ export default function Category({ id, name }) {
     function handleSelectCategory(selectedCategoryId) {
         setSelected(selectedCategoryId === selected ? null : selectedCategoryId)
     }
+
+
 
     return (
         <>
@@ -27,7 +31,7 @@ export default function Category({ id, name }) {
             </Link>
             {selected === id ?
                 <div>
-                    <p>Sub catagory</p>
+                    <CategoryPlaylist playlist={categoryplaylist} />
                 </div>
                 : null}
 
