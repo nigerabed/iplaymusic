@@ -1,9 +1,13 @@
 "use client"
-import { useState } from 'react';
-import Link from "next/Link";
-import CategoryPlaylist from './CategoriyPlaylist';
+import { useEffect, useState } from 'react';
+ import CategoryPlaylist from './CategoriyPlaylist';
+ 
 
-export default function Category({ id, name, categoryplaylist }) {
+
+export default function Category({ id, name, categoryplaylist,cookieToken }) {
+
+
+
     const [selected, setSelected] = useState(null)
 
     const randomColors = ['#FF5733', '#33FF57', '#FF33FF', '#33A8FF', '#A833FF', '#FFA833'];
@@ -12,12 +16,19 @@ export default function Category({ id, name, categoryplaylist }) {
         setSelected(selectedCategoryId === selected ? null : selectedCategoryId)
     }
 
+    const [mounted, setMounted] = useState(false);
+ 
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+ 
+    if (!mounted) return null;
 
 
     return (
         <>
-            <Link href="">
-                <div onClick={() => handleSelectCategory(id)}
+        
+                 <div onClick={() => handleSelectCategory(id)}
                     className=" w-[70%] ml-[4em] text-white font-bold flex justify-between" key={id}
                     style={{
                         backgroundColor: randomColors[Math.floor(Math.random() * randomColors.length)],
@@ -28,10 +39,10 @@ export default function Category({ id, name, categoryplaylist }) {
                     <span> {name}</span>
                     <span>. . .</span>
                 </div>
-            </Link>
+           
             {selected === id ?
                 <div>
-                    <CategoryPlaylist playlist={categoryplaylist} />
+                    <CategoryPlaylist cookieToken={cookieToken} id={id} playlist={categoryplaylist} />
                 </div>
                 : null}
 

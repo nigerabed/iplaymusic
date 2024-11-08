@@ -8,11 +8,11 @@ export default function SongItem({ trackId, albumName ,artistName,trackDuration}
         <div key={trackId} className="flex justify-between p-[2em]">
             <div className="flex">
                 <div>
-                    <Image height={40} width={40} src={musicPlay} alt="play" />
+                    <Image height={40} width={40} src={musicPlay} alt="play" className='h-[2em] w-[2em]' />
                 </div>
                 <div className="ml-[1.5em]">
                     <Link href={`/playing/${trackId}`}>
-                        <h2 className="text-[1.2em] font-bold truncate text-ellipsis overflow-hidden ">{albumName}</h2>
+                        <h2 className="text-[1.2em] font-bold truncate text-ellipsis overflow-hidden h-[] ">{albumName}</h2>
                     </Link>
                     <span>{artistName}</span>
                 </div>

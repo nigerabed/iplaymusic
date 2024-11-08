@@ -1,12 +1,58 @@
-import Link from "next/link";
+// import Link from "next/link";
+"use client";
+
+import { useEffect, useState } from "react";
+
+export default function CategoryPlaylist({ playlist, id,cookieToken }) {
+  const [singleCategory, setSingleCategory] = useState([]);
 
 
-export default function CategoryPlaylist({ playlist }) {
+  useEffect(() => {
+    async function getSingleCategorieId(id = 0) {
+     
+      const response = await fetch(
+        `https://api.spotify.com/v1/browse/categories/${id}`,
+        {
+          headers: {
+            Authorization: "Bearer " + cookieToken.value,
+          },
+        }
+      );
 
-    return (
-        <>
-            <Link href="/playlists/37i9dQZF1DXbLJ4V4LNcKE"><p>Blue Rocks</p></Link>
-            {playlist.map(item => <p>{item.name}</p>)}
+      const data = [await response.json()] 
+
+      console.log(data);
+      
+      
+      setSingleCategory(data)
+    }
+    
+    //console.log('hello');
+    getSingleCategorieId(id);
+  }, []);
+
+
+
+  return (
+
+          <>
+          {singleCategory.map((item) => (
+           <a key={item.id} href={`/categories/${item.id}`}>
+           <p>{item.name}</p>
+           </a>
+          ))}
         </>
-    )
+  );
 }
+
+// async function getSingleCategorieId(id) {
+//     const cookieStore = cookies();
+//     const token = cookieStore.get("iplay_token")
+//     const response = await fetch(`https://api.spotify.com/v1/browse/categories/${id}`, {
+//         headers: {
+//             Authorization: 'Bearer ' + token.value
+//         }
+//     });
+
+//     return response.json()
+// }

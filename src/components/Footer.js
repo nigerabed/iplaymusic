@@ -17,8 +17,8 @@ export default function Footer() {
                 <Image src={microphone} height={30} width={30} alt="microphone" />
             </Link>
             <Link href="/playlist">
-                <div className="relative bg-[#F42C4D] rounded-full h-[3.7em] w-[3.7em] mb-[.5em]">
-                    <Image className="absolute top-[.5em] p-2 left-[1em]" layout="fill" src={wifi} alt="wifi" />
+                <div className="flex justify-center items-center bg-[#F42C4D] rounded-full h-[3.7em] w-[3.7em] mb-[.5em]">
+                    <Image className=" w-[80%]" src={wifi} alt="wifi" priority={true} />
                 </div>
             </Link>
             <Link href="/music">

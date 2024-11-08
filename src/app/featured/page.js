@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { cookies } from 'next/headers';
+import Link from 'next/link';
 
 
 
@@ -22,7 +23,7 @@ export default async function featuredPlay() {
     return (
         <>
             <Header />
-            <main className="overflow-y-scroll h-[75vh]">
+            <main className="overflow-y-scroll h-[75vh] mb-[10em]">
 
 
                 <div className="flex flex-col items-center h-full">
@@ -33,7 +34,9 @@ export default async function featuredPlay() {
 
                     {data.playlists.items.map(item => (
                         <>
+                        <Link href={item.external_urls.spotify} target="_blank">
                             <img src={item.images[0].url} className="h-[30em] rounded-[1em] object-cover" width={350} height={350} alt="playlist image" />
+                        </Link>
 
                             {console.log(item.images[0].url)}
                             <p className="text-[1.4em] mb-[1em] text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a00] to-[#E71858] font-bold">{item.name}</p>
