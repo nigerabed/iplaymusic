@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import ThemeButton from '@/components/ThemeButton';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 
@@ -20,8 +21,10 @@ export default async function featuredPlay() {
     const data = await response.json()
     //console.log(data.playlists.items);
 
+
     return (
         <>
+         <ThemeButton/>
             <Header />
             <main className="overflow-y-scroll h-[75vh] mb-[10em]">
 

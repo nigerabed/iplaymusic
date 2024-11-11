@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="fixed bottom-0 bg-white z-[10] flex justify-around h-[10vh] w-full p-[1rem] shadow-[-20px_0px_10px_6px_lightgrey]">
+        <footer className="dark:bg-gray-700 fixed bottom-0 bg-white z-[10] flex justify-around h-[10vh] w-full p-[1rem] shadow-[-20px_0px_10px_6px_lightgrey]">
             <Link href="/catagories">
                 <Image alt="pulse" src={pulse} height={40} width={40} />
             </Link>

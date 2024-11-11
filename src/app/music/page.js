@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import SongItem from "@/components/SongItem";
 import playlistImg from "../../assets/images/playlist.png";
 import Image from "next/image";
+import ThemeButton from "@/components/ThemeButton";
 
 export default async function Music() {
   const cookieStore = cookies();
@@ -33,15 +34,8 @@ export default async function Music() {
         alt="backroundImg"
         className="h-[25em] w-[100%] absolute -z-10 "
       />
-      <div
-      //    style={{
-      //     backgroundImage: `url(${playlistImg.src})`, // Use url() with playlistImg.src
-      //     backgroundSize: "cover", // Optional: set size to cover the div
-      //     backgroundPosition: "center", // Optional: center the image
-      //     backgroundRepeat: "no-repeat", // Optional: prevent repeating
-
-      //   }}
-      >
+      <div>
+      <ThemeButton/>
         <Header />
 
         <h1 className="text-[3em] pl-[.5em] font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ff6a00] to-[#E71858]">
@@ -51,6 +45,7 @@ export default async function Music() {
       <div className="mb-[10vh]">
         {data.tracks.map((track) => (
           <SongItem
+          key={track.id}
             trackId={track.id}
             albumName={truncateString(track.album.name)}
             artistName={track.album.artists[0].name}
